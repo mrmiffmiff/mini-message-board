@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.title %>
+    </title>
+</head>
+<body>
+    <h1>Messages</h1>
+    <% for (const message of locals.messages) { %>
+        <h2>Message:
+            <%= message.text %>
+        </h2>
+        <h3>From:
+            <%= message.user %>
+        </h3>
+        <h4>At:
+            <%= message.added %>
+        </h4>
+    <% } %>
+</body>
+</html>
