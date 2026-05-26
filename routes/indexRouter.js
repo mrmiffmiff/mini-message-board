@@ -1,22 +1,8 @@
 import { Router } from "express";
+import { getIndex } from "../controllers/indexController.js";
 
 const indexRouter = Router();
 
-const sampleMessages = [
-    {
-        text: "Hi there!",
-        user: "Amando",
-        added: new Date(),
-    },
-    {
-        text: "Hello World!",
-        user: "Charles",
-        added: new Date(),
-    },
-];
-
-indexRouter.get("/", (req, res) => {
-    res.render("index", { title: "Mini Messageboard", messages: sampleMessages });
-});
+indexRouter.get("/", getIndex);
 
 export default indexRouter;
