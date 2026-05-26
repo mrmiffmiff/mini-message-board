@@ -1,5 +1,6 @@
-import { sampleMessages } from "../fakeDb.js";
+import { getMessages } from "../fakeDb.js";
 
 export function getIndex(req, res) {
-    res.render("index", { title: "Mini Messageboard", messages: sampleMessages });
+    const messages = getMessages()
+    res.render("index", { title: "Mini Messageboard", messages: messages });
 }
