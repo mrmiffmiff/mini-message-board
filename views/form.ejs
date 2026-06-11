@@ -8,18 +8,17 @@
 <body>
     <h1>Enter a New Message</h1>
     <p><a href="/">Back to Index</a></p>
+    <%- include("partials/errors.ejs") %>
     <form method="post" action="/new">
         <label>
             Your Name: 
-            <input type="text" name="authorName" id="authorName">
+            <input type="text" name="authorName" id="authorName" <% if (locals.name) { %>value="<%= locals.name %>"<% } %>>
         </label>
         <br>
         <label>
             Your Message:
             <br>
-            <textarea name="messageText" id="messageText" cols="50" rows="10">
-                Enter your message here...
-            </textarea>
+            <textarea name="messageText" id="messageText" cols="50" rows="10"><% if (locals.message) { %><%= locals.message %><% } else { %>Enter your message here...<% } %></textarea>
         </label>
         <br>
         <button type="submit">Submit</button>
