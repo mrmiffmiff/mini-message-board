@@ -1,15 +1,19 @@
-import { getMessageById } from "../fakeDb.js";
+import db from "../db/queries.js";
 
-export function getDetails(req, res, next) {
-    const message = getMessageById(Number.parseInt(req.params.id));
-    if (message === undefined) {
-        next();
-    }
-    else {
-        res.render("details", {
-            date: message.added,
-            author: message.user,
-            text: message.text
-        });
+export async function getDetails(req, res, next) {
+    try {
+        const message = await db.getMessageById(Number.parseInt(req.params.id));
+        if (message === undefined) {
+            throw new Error("Undefined message");
+        }
+        else {
+            res.render("details", {
+                date: message.date,
+                username: message.username,
+                text: message.text
+            });
+        }
+    } catch (err) {
+        next(err);
     }
 }

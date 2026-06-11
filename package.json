@@ -4,7 +4,9 @@
   "description": "Mini Message Board project for The Odin Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "initDb": "node --env-file=.env db/populatedb.js",
+    "dev": "node --env-file=.env --watch app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,8 @@
   "homepage": "https://github.com/mrmiffmiff/mini-message-board#readme",
   "dependencies": {
     "ejs": "^5.0.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "pg": "^8.21.0"
   }
 }
